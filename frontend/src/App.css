@@ -1,0 +1,173 @@
+
+/* ========================================
+   EAPCET — Black & Purple Glassmorphism
+   ======================================== */
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+.glass-card {
+  background: rgba(23, 18, 31, 0.76);
+  border: 1px solid rgba(196, 181, 253, 0.15);
+  border-radius: 18px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+  transition:
+    border-color 250ms ease,
+    box-shadow 250ms ease,
+    transform 250ms ease;
+}
+
+.glass-card:hover {
+  border-color: rgba(167, 139, 250, 0.38);
+  box-shadow:
+    0 16px 48px rgba(0, 0, 0, 0.3),
+    0 0 28px rgba(139, 92, 246, 0.12);
+}
+
+.glass-panel {
+  background: rgba(18, 16, 25, 0.78);
+  border: 1px solid rgba(196, 181, 253, 0.16);
+  border-radius: 22px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.25);
+}
+
+.purple-button {
+  color: #100b1b;
+  background: linear-gradient(135deg, #c4b5fd 0%, #a78bfa 45%, #8b5cf6 100%);
+  border: 1px solid rgba(221, 214, 254, 0.35);
+  border-radius: 12px;
+  font-weight: 600;
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    filter 200ms ease;
+}
+
+.purple-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.32);
+  filter: brightness(1.08);
+}
+
+.purple-outline-button {
+  color: #f5f3ff;
+  background: rgba(139, 92, 246, 0.055);
+  border: 1px solid rgba(167, 139, 250, 0.28);
+  border-radius: 12px;
+  transition:
+    background 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.purple-outline-button:hover {
+  background: rgba(139, 92, 246, 0.14);
+  border-color: #a78bfa;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.1);
+}
+
+.purple-glow {
+  box-shadow:
+    0 0 24px rgba(139, 92, 246, 0.16),
+    0 0 60px rgba(139, 92, 246, 0.06);
+}
+
+.gradient-text {
+  color: #c4b5fd;
+  background: linear-gradient(100deg, #ede9fe, #c4b5fd, #8b5cf6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.muted-text {
+  color: #a7a0b8;
+}
+
+.page-enter {
+  animation: pageEnter 550ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes purplePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 18px rgba(139, 92, 246, 0.12);
+  }
+
+  50% {
+    box-shadow: 0 0 32px rgba(139, 92, 246, 0.25);
+  }
+}
+
+.purple-pulse {
+  animation: purplePulse 3s ease-in-out infinite;
+}
+
+.glass-input {
+  width: 100%;
+  color: #f5f3ff;
+  background: rgba(8, 7, 13, 0.7);
+  border: 1px solid rgba(196, 181, 253, 0.18);
+  border-radius: 12px;
+  padding: 12px 14px;
+  outline: none;
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.glass-input::placeholder {
+  color: #777087;
+}
+
+.glass-input:focus {
+  border-color: #a78bfa;
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+}
+
+::selection {
+  color: #fff;
+  background: #7c3aed;
+}
+
+@media (max-width: 640px) {
+  .glass-card {
+    border-radius: 15px;
+  }
+
+  .glass-panel {
+    border-radius: 17px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-enter,
+  .purple-pulse {
+    animation: none;
+  }
+
+  .glass-card,
+  .purple-button,
+  .purple-outline-button,
+  .glass-input {
+    transition: none;
+  }
+}
